@@ -1,0 +1,1 @@
+Contenido ideal: Nombre del proyecto, descripción corta, tecnologías usadas (HTML, CSS, JS) y cómo abrirlo (ej. con Live Server).

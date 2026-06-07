@@ -1,0 +1,320 @@
+/*
+  ==================== RESPONSIVE.CSS ====================
+  
+  DESCRIPCIÓN:
+  Este archivo contiene los estilos para hacer que la página web
+  sea "responsive" - que se adapte a diferentes tamaños de pantalla
+  (móvil, tablet, desktop).
+  
+  ¿QUÉ ES RESPONSIVE DESIGN?
+  - Es la capacidad de una página web de verse bien en cualquier dispositivo
+  - Móvil: 320px - 767px
+  - Tablet: 768px - 1023px
+  - Desktop: 1024px +
+  
+  ¿POR QUÉ ES IMPORTANTE?
+  - La mayoría de usuarios acceden desde móvil
+  - Google penaliza sitios que no son responsive
+  - Mejora la experiencia del usuario
+  - Evita que el contenido se vea "aplastado" en móvil
+  
+  CÓMO FUNCIONA:
+  Usamos media queries (@media) para aplicar diferentes estilos
+  según el tamaño de la pantalla:
+  
+  @media (max-width: 768px) {
+    .elemento {
+      /* Estilos solo para pantallas menores a 768px */
+    }
+  }
+  
+  PUNTOS DE QUIEBRE (BREAKPOINTS):
+  - Mobile First: Empezamos con estilos para móvil
+  - Luego agregamos estilos para tablet y desktop
+  - Esto hace que el código sea más limpio y mantenible
+  
+  ESTRATEGIA DE ESTE ARCHIVO:
+  1. Tablet (768px y arriba)
+  2. Desktop (1024px y arriba)
+  3. Desktop Grande (1440px y arriba)
+  
+  HERRAMIENTAS PARA PROBAR:
+  - Chrome DevTools (F12) → Toggle Device Toolbar (Ctrl+Shift+M)
+  - Cambia el tamaño de la pantalla y ve cómo se adapta
+  - Prueba en dispositivos reales si es posible
+*/
+
+/* ========== MOBILE FIRST (Base) ========== */
+/*
+  Los estilos base en styles.css y header.css
+  ya están optimizados para móvil.
+  
+  Esto significa:
+  - Elementos son anchos (100%)
+  - Textos son grandes (legibles)
+  - Componentes están apilados verticalmente
+  - Menú está colapsado
+*/
+
+/* ========== TABLET (768px y arriba) ========== */
+@media (min-width: 768px) {
+  /*
+    CUANDO LA PANTALLA ES >= 768px (iPad, tablets grandes)
+    Hacemos cambios para aprovechar más espacio horizontal
+  */
+  
+  /* HEADER RESPONSIVE */
+  .header-container {
+    /* En tablet, mostramos todo horizontalmente */
+    flex-wrap: nowrap;
+  }
+  
+  /* MENÚ MÓVIL */
+  .btn-menu-mobile {
+    /* En tablet ya no necesitamos el menú hamburguesa */
+    display: none;
+  }
+  
+  /* NAVEGACIÓN */
+  .navbar {
+    /* Mostrar navegación completa */
+    display: flex;
+  }
+  
+  /* CONTENEDOR */
+  .container {
+    padding: 0 2rem;
+  }
+  
+  /* GRID DE 2 COLUMNAS */
+  .grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+  
+  /* TIPOGRAFÍA */
+  h1 { font-size: 2rem; }
+  h2 { font-size: 1.75rem; }
+  h3 { font-size: 1.25rem; }
+}
+
+/* ========== DESKTOP (1024px y arriba) ========== */
+@media (min-width: 1024px) {
+  /*
+    CUANDO LA PANTALLA ES >= 1024px (laptops, desktops)
+    Optimizamos para mejor distribución del contenido
+  */
+  
+  /* CONTENEDOR MÁXIMO */
+  .container {
+    max-width: 1200px;
+    padding: 0 3rem;
+  }
+  
+  /* GRID DE 3 COLUMNAS */
+  .grid-3 {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 2rem;
+  }
+  
+  /* FLEXBOX HORIZONTAL */
+  .flex-row {
+    display: flex;
+    gap: 2rem;
+  }
+  
+  /* SIDEBAR (Contenido + Barra lateral) */
+  .with-sidebar {
+    display: grid;
+    grid-template-columns: 1fr 300px;
+    gap: 2rem;
+  }
+  
+  /* CONTACTO: 2 COLUMNAS */
+  .contact-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+  }
+  
+  /* ABOUT: 2 COLUMNAS ALTERNADAS */
+  .about-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    align-items: center;
+  }
+  
+  /* Alternar orden de columnas cada bloque */
+  .about-block:nth-child(even) {
+    direction: rtl;
+  }
+  
+  .about-block:nth-child(even) * {
+    direction: ltr;
+  }
+  
+  /* GALERÍA O PORTFOLIO (4 COLUMNAS) */
+  .gallery {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+  }
+  
+  /* TIPOGRAFÍA MÁS GRANDE */
+  h1 { font-size: 2.5rem; }
+  h2 { font-size: 2rem; }
+}
+
+/* ========== DESKTOP GRANDE (1440px y arriba) ========== */
+@media (min-width: 1440px) {
+  /*
+    PANTALLAS MUY GRANDES (27" monitors, etc)
+    Máxima optimización del espacio
+  */
+  
+  .container {
+    max-width: 1400px;
+  }
+  
+  /* ESPACIADO MAYOR */
+  section {
+    padding: 4rem 0;
+  }
+}
+
+/* ========== IMPRESORA ========== */
+/*
+  Estilos especiales cuando el usuario quiere imprimir la página
+*/
+@media print {
+  /* Ocultar elementos que no tienen sentido en impresora */
+  header, footer, .no-print, button {
+    display: none;
+  }
+  
+  /* Usar colores mejor para impresión */
+  body {
+    color: #000;
+    background: #fff;
+  }
+  
+  /* Márgenes para papel */
+  body {
+    margin: 2cm;
+  }
+}
+
+/* ========== PREFERENCIAS DEL USUARIO ========== */
+
+/* Respetar preferencia de movimiento reducido */
+@media (prefers-reduced-motion: reduce) {
+  /*
+    Algunos usuarios prefieren reducir animaciones
+    (para evitar mareos, etc)
+  */
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Modo oscuro (si el sistema lo soporta) */
+@media (prefers-color-scheme: dark) {
+  /*
+    Si el usuario tiene habilitado dark mode en su dispositivo
+    Puedes invertir colores aquí
+  */
+  
+  /* Descomentar y personalizar si quieres dark mode */
+  /*
+  body {
+    background-color: #1a1a1a;
+    color: #ffffff;
+  }
+  */
+}
+
+/* ========== PANTALLA VERTICAL vs HORIZONTAL ========== */
+/*
+  Distinguir entre orientaciones en móviles
+*/
+@media (orientation: portrait) {
+  /*
+    Estilos para pantalla vertical (como la mayoría de móviles)
+  */
+}
+
+@media (orientation: landscape) {
+  /*
+    Estilos para pantalla horizontal
+  */
+}
+
+/* ========== DENSIDAD DE PÍXELES (Pantallas Retina) ========== */
+/*
+  Dispositivos con pantallas de alta densidad (Retina displays)
+*/
+@media (min-device-pixel-ratio: 2) {
+  /*
+    Para imágenes de alta resolución:
+    Puedes usar una imagen más grande sin que se vea pixelada
+  */
+  
+  .logo img {
+    background-image: url('../assets/image/logo-2x.png');
+    background-size: contain;
+  }
+}
+
+/* ========== CONSEJOS PARA RESPONSIVE ========== */
+/*
+  1. MOBILE FIRST:
+     - Escribe estilos base para móvil
+     - Usa media queries para pantallas más grandes
+     - NO uses @media (max-width) - usa (min-width)
+  
+  2. BREAKPOINTS:
+     - Usa solo 2-3 breakpoints principales
+     - 768px (tablet), 1024px (desktop) son estándares
+     - Evita optimizar para cada dispositivo específico
+  
+  3. FLEXBOX Y GRID:
+     - Usa flexbox para layouts simples (header, nav)
+     - Usa CSS Grid para layouts complejos
+     - Ambos son responsive por naturaleza
+  
+  4. PRUEBA REAL:
+     - Prueba en dispositivos reales, no solo emuladores
+     - Revisa en diferentes navegadores
+     - Pide a amigos que prueben en sus móviles
+  
+  5. IMAGES RESPONSIVE:
+     - Usa img { max-width: 100%; }
+     - Considera usar srcset para diferentes resoluciones
+     - Optimiza tamaño de archivo para móvil
+  
+  6. PERFORMANCE:
+     - Carga solo los CSS que necesitas
+     - Evita media queries innecesarias
+     - Usa estrategias de lazy-loading para imágenes
+*/
+
+/* ========== HERRAMIENTAS ÚTILES ========== */
+/*
+  Para probar responsive:
+  
+  1. Chrome DevTools: F12 → Ctrl+Shift+M
+  2. Responsively App: App gratuita para probar múltiples pantallas
+  3. BrowserStack: Prueba en dispositivos reales
+  4. Your Phone: Si tienes Android, conecta directamente a tu PC
+  
+  Emuladores:
+  - Mobile: 375px (iPhone), 414px (iPhone Plus)
+  - Tablet: 768px (iPad), 1024px (iPad Pro)
+  - Laptop: 1366px
+  - Desktop: 1920px, 2560px
+*/

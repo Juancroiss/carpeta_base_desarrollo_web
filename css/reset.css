@@ -1,0 +1,126 @@
+/*
+  ==================== RESET.CSS ====================
+  
+  DESCRIPCIÓN:
+  Este archivo elimina los estilos por defecto que cada navegador 
+  aplica a los elementos HTML. Esto permite tener un punto de partida 
+  consistente en todos los navegadores (Chrome, Firefox, Safari, Edge).
+  
+  ¿POR QUÉ ES IMPORTANTE?
+  - Cada navegador aplica estilos diferentes a elementos HTML
+  - Sin reset.css, un <h1> se ve diferente en Chrome que en Firefox
+  - El reset.css normaliza estos estilos para que todos vean igual
+  - Ahorra tiempo y evita problemas de compatibilidad
+  
+  QUÉ HACE:
+  - Elimina márgenes por defecto (margin: 0)
+  - Elimina padding por defecto (padding: 0)
+  - Normaliza tamaños de fuente
+  - Normaliza estilos de listas
+  - Normaliza bordes
+  - Normaliza comportamiento de cajas (box-sizing)
+  
+  DETALLES TÉCNICOS:
+  - Se carga PRIMERO en la cascada CSS (para que otros CSS lo sobrescriban)
+  - Usa selectores universales y por elemento
+  - box-sizing: border-box es importante para que width incluya padding
+  
+  CÓMO USARLO:
+  1. Este archivo SIEMPRE va primero en Index.html
+  2. No modifiques este archivo a menos que tengas una razón específica
+  3. Los demás archivos CSS sobreescriben los estilos de aquí
+  
+  NOTA IMPORTANTE:
+  Los comentarios en CSS van entre /* */ 
+  No pueden ir dentro de selectores o propiedades
+*/
+
+/* 
+  ========== RESET UNIVERSAL ==========
+  El selector "*" aplica estilos a TODOS los elementos
+*/
+* {
+  /* Asegura que padding y border se incluyen en el width/height */
+  box-sizing: border-box;
+  /* Elimina las barras de desplazamiento por defecto */
+  margin: 0;
+  padding: 0;
+}
+
+/* 
+  ========== RESET DE ELEMENTOS HTML ==========
+  Aquí normalizamos elementos específicos
+*/
+
+html, body {
+  /* Alto 100% para que el body ocupe toda la pantalla */
+  height: 100%;
+  /* Fuente base para todo el documento */
+  font-family: Arial, sans-serif;
+  /* Color de texto por defecto */
+  color: #333;
+  /* Fondo blanco por defecto */
+  background-color: #ffffff;
+}
+
+/* Elementos de encabezado */
+h1, h2, h3, h4, h5, h6 {
+  /* Elimina márgenes por defecto */
+  margin: 0;
+  padding: 0;
+  /* Fuente normal (no bold por defecto) */
+  font-weight: normal;
+}
+
+/* Párrafos */
+p {
+  margin: 0;
+  padding: 0;
+}
+
+/* Listas */
+ul, ol, li {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Enlaces */
+a {
+  /* Elimina el subrayado */
+  text-decoration: none;
+  /* Color de texto por defecto (hereda del padre) */
+  color: inherit;
+}
+
+/* Buttons */
+button {
+  /* Elimina estilos por defecto del botón */
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+/* Inputs y formularios */
+input, textarea, select {
+  font-family: inherit;
+  font-size: inherit;
+}
+
+/* Imágenes */
+img {
+  /* Imágenes responsive por defecto */
+  max-width: 100%;
+  height: auto;
+  /* Elimina espacios en blanco bajo la imagen */
+  display: block;
+}
+
+/* 
+  RECUERDA:
+  - Este archivo se carga PRIMERO
+  - Los demás archivos CSS sobreescriben estos estilos
+  - No necesitas reset.css solo si usas un framework como Bootstrap
+*/

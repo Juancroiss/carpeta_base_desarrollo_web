@@ -1,0 +1,246 @@
+/*
+  ==================== HEADER.CSS ====================
+  
+  DESCRIPCIÓN:
+  Este archivo contiene todos los estilos específicos para el encabezado (header)
+  de la página. Aquí se define cómo se ve la navegación, el logo, botones, etc.
+  
+  QUÉ ESTILOS VAN AQUÍ:
+  1. Estilos del contenedor del header
+  2. Estilos del logo
+  3. Estilos de la navegación (navbar)
+  4. Estilos de botones del header
+  5. Efectos hover en elementos del header
+  
+  CONSIDERACIONES:
+  - El header debe ser responsive (verse bien en móvil)
+  - Los estilos responsivos van en responsive.css
+  - Mantén este archivo enfocado SOLO en el header
+  - Si los estilos son generales (para todo el sitio), van en styles.css
+  
+  ESTRUCTURA DE CLASE CSS:
+  Usar nomenclatura clara y consistente:
+  - .header: Contenedor principal
+  - .header-container: Contenedor interno
+  - .logo: Logo del sitio
+  - .navbar: Navegación
+  - .btn-login: Botón de login
+  
+  BUENAS PRÁCTICAS:
+  - Usa clases, no IDs (más flexible)
+  - Anida selectores lógicamente
+  - Usa colores y fuentes consistentes
+  - Evita !important
+  - Comenta secciones principales
+*/
+
+/* ========== CONTENEDOR DEL HEADER ========== */
+header {
+  /* Color de fondo del header */
+  background-color: #2c3e50;
+  
+  /* Relleno interno */
+  padding: 1rem 2rem;
+  
+  /* Sombra para separación visual */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  
+  /* Posición fija (opcional - descomentar si quieres que no se mueva) */
+  /* position: fixed; */
+  /* width: 100%; */
+  /* top: 0; */
+  /* z-index: 1000; */
+}
+
+/* ========== CONTENEDOR INTERNO ========== */
+.header-container {
+  /* Máximo ancho para contenido centrado */
+  max-width: 1200px;
+  
+  /* Centrar horizontalmente */
+  margin: 0 auto;
+  
+  /* Distribuir elementos horizontalmente */
+  display: flex;
+  
+  /* Espaciar elementos al máximo */
+  justify-content: space-between;
+  
+  /* Alinear verticalmente al centro */
+  align-items: center;
+  
+  /* Espacio entre elementos */
+  gap: 2rem;
+}
+
+/* ========== LOGO ========== */
+.logo {
+  /* Distribuir logo y texto horizontalmente */
+  display: flex;
+  
+  /* Alinear verticalmente */
+  align-items: center;
+  
+  /* Espacio entre imagen y texto */
+  gap: 0.5rem;
+  
+  /* Color del texto */
+  color: #ffffff;
+  
+  /* Tamaño de fuente */
+  font-size: 1.5rem;
+  
+  /* Peso de fuente */
+  font-weight: bold;
+  
+  /* Cursor de mano al pasar (indica que es clickeable) */
+  cursor: pointer;
+}
+
+/* Imagen del logo */
+.logo img {
+  /* Altura máxima del logo */
+  height: 50px;
+  
+  /* Ancho automático (mantiene proporción) */
+  width: auto;
+  
+  /* Radio de esquina para imagen redondeada (opcional) */
+  border-radius: 4px;
+}
+
+/* Efecto hover en el logo */
+.logo:hover {
+  opacity: 0.8;
+  transition: opacity 0.3s ease;
+}
+
+/* ========== NAVEGACIÓN ========== */
+.navbar {
+  /* No mostrar por defecto en móvil (se muestra en responsive.css) */
+  display: flex;
+  
+  /* Espacio entre items */
+  gap: 2rem;
+}
+
+/* Lista de items de navegación */
+.navbar ul {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+}
+
+/* Items de navegación */
+.navbar li {
+  /* Sin estilos especiales - hereda del padre */
+}
+
+/* Links de navegación */
+.navbar a {
+  /* Color del texto */
+  color: #ffffff;
+  
+  /* Tamaño de fuente */
+  font-size: 1rem;
+  
+  /* Transición suave para efectos */
+  transition: color 0.3s ease, border-bottom 0.3s ease;
+  
+  /* Borde inferior para efecto hover */
+  padding-bottom: 2px;
+  border-bottom: 2px solid transparent;
+}
+
+/* Efecto hover en links de navegación */
+.navbar a:hover {
+  /* Cambiar color al pasar el mouse */
+  color: #3498db;
+  
+  /* Mostrar borde inferior */
+  border-bottom: 2px solid #3498db;
+}
+
+/* Link activo (página actual) */
+.navbar a.active {
+  color: #3498db;
+  border-bottom: 2px solid #3498db;
+}
+
+/* ========== ACCIONES DEL HEADER (BOTONES) ========== */
+.header-actions {
+  /* Distribuir botones horizontalmente */
+  display: flex;
+  
+  /* Espacio entre botones */
+  gap: 1rem;
+  
+  /* Alinear verticalmente */
+  align-items: center;
+}
+
+/* Botón de login */
+.btn-login {
+  /* Padding interno */
+  padding: 0.75rem 1.5rem;
+  
+  /* Color de fondo */
+  background-color: #3498db;
+  
+  /* Color del texto */
+  color: #ffffff;
+  
+  /* Radio de esquina */
+  border-radius: 4px;
+  
+  /* Borde */
+  border: none;
+  
+  /* Cursor de mano */
+  cursor: pointer;
+  
+  /* Transición suave */
+  transition: background-color 0.3s ease;
+  
+  /* Tamaño de fuente */
+  font-size: 1rem;
+  
+  /* Peso de fuente */
+  font-weight: bold;
+}
+
+/* Efecto hover en botón login */
+.btn-login:hover {
+  /* Color más oscuro al pasar el mouse */
+  background-color: #2980b9;
+}
+
+/* Efecto activo (al hacer click) */
+.btn-login:active {
+  /* Hacer el botón más pequeño para feedback visual */
+  transform: scale(0.98);
+}
+
+/* Botón de menú para móvil */
+.btn-menu-mobile {
+  /* Por defecto no visible (se muestra en responsive.css) */
+  display: none;
+  
+  color: #ffffff;
+  font-size: 1.5rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  
+  /* Hacerlo más grande para facilitar el click en móvil */
+  padding: 0.5rem;
+}
+
+/* 
+  NOTAS FINALES:
+  1. Todos los valores en rem son relativos a la fuente base (16px)
+  2. Las transiciones hacen que los cambios sean suaves
+  3. Los selectores:hover permiten efectos interactivos
+  4. Los valores de gap crean espacio entre elementos
+  5. Revisa responsive.css para ver cómo se adapta a móvil
+*/

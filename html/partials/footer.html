@@ -1,0 +1,86 @@
+<!--
+  ==================== PARTIAL: footer.html ====================
+  
+  DESCRIPCIÓN:
+  Este archivo contiene el código del pie de página (footer) de la página.
+  Es un "partial" - un fragmento que aparece al final de todas las páginas.
+  
+  QUÉ DEBE CONTENER:
+  1. Copyright y información legal
+  2. Links a páginas importantes (Privacy, Terms, etc.)
+  3. Información de contacto
+  4. Enlaces a redes sociales
+  5. Mapa del sitio (links rápidos)
+  6. Newsletter signup (opcional)
+  
+  ESTRUCTURA TÍPICA:
+  <footer>
+    <div class="footer-content">
+      <div class="footer-section">Links útiles</div>
+      <div class="footer-section">Contacto</div>
+      <div class="footer-section">Redes sociales</div>
+      <div class="footer-bottom">Copyright</div>
+    </div>
+  </footer>
+  
+  CONSIDERACIONES:
+  - El footer debe estar en todas las páginas
+  - Debe ser responsive (funcionar en móvil)
+  - Los links deben ser accesibles y claros
+  - Incluye información de copyright y legal
+  - Usa colores que contrasten bien con el fondo
+  
+  CÓMO USAR ESTE PARTIAL:
+  Incluye este archivo al final de cada página HTML,
+  justo antes de cerrar la etiqueta </body>
+-->
+
+<footer>
+    <div class="footer-container">
+        <!-- SECCIÓN 1: INFORMACIÓN RÁPIDA -->
+        <div class="footer-section">
+            <h3>Enlaces Útiles</h3>
+            <ul>
+                <li><a href="#about">Acerca de Nosotros</a></li>
+                <li><a href="#services">Servicios</a></li>
+                <li><a href="#blog">Blog</a></li>
+                <li><a href="#faq">Preguntas Frecuentes</a></li>
+            </ul>
+        </div>
+        
+        <!-- SECCIÓN 2: CONTACTO -->
+        <div class="footer-section">
+            <h3>Contacto</h3>
+            <p>Email: <a href="mailto:info@sitio.com">info@sitio.com</a></p>
+            <p>Teléfono: <a href="tel:+1234567890">+1 234 567 890</a></p>
+            <p>Dirección: Calle Principal 123, Ciudad</p>
+        </div>
+        
+        <!-- SECCIÓN 3: REDES SOCIALES -->
+        <div class="footer-section">
+            <h3>Síguenos</h3>
+            <ul>
+                <li><a href="#">Facebook</a></li>
+                <li><a href="#">Twitter</a></li>
+                <li><a href="#">Instagram</a></li>
+                <li><a href="#">LinkedIn</a></li>
+            </ul>
+        </div>
+        
+        <!-- SECCIÓN 4: INFORMACIÓN LEGAL -->
+        <div class="footer-section">
+            <h3>Legal</h3>
+            <ul>
+                <li><a href="#privacy">Privacidad</a></li>
+                <li><a href="#terms">Términos de Uso</a></li>
+                <li><a href="#cookies">Política de Cookies</a></li>
+            </ul>
+        </div>
+    </div>
+    
+    <!-- BARRA INFERIOR: Copyright y créditos -->
+    <div class="footer-bottom">
+        <p>&copy; 2026 Mi Sitio Web. Todos los derechos reservados.</p>
+        <p>Desarrollado con ❤️ por <a href="#">Tu Nombre</a></p>
+    </div>
+</footer>

@@ -1,0 +1,89 @@
+<!--
+  ==================== ARCHIVO PRINCIPAL: Index.html ====================
+  
+  DESCRIPCIÓN:
+  Este es el archivo principal (punto de entrada) de la página web.
+  Es el primer archivo que se carga cuando un usuario accede a tu sitio.
+  
+  ESTRUCTURA BÁSICA HTML:
+  - <html>: Contenedor raíz de todo el documento
+  - <head>: Contiene metadatos, título, enlaces a CSS, scripts, etc.
+  - <body>: Contiene el contenido visible de la página (lo que ve el usuario)
+  
+  CONSIDERACIONES IMPORTANTES:
+  1. Siempre mantén una estructura HTML semántica y clara
+  2. Usa etiquetas apropiadas (<header>, <main>, <section>, <article>, <footer>)
+  3. Importa los archivos CSS en <head> antes del <body>
+  4. Carga los scripts JavaScript al final del <body> para mejor rendimiento
+  5. Asegúrate de tener un <meta charset="UTF-8"> para caracteres especiales
+  
+  PASO A PASO para desarrollar:
+  1. Crea la estructura base con <html>, <head>, <body>
+  2. Agrega metadatos en <head> (charset, viewport, descripción)
+  3. Importa los archivos CSS
+  4. Importa los archivos JavaScript
+  5. Organiza el contenido en secciones lógicas
+  6. Reutiliza los partials (header.html, footer.html, etc.)
+  
+  BUENAS PRÁCTICAS:
+  - Indenta correctamente para legibilidad
+  - Usa comentarios en HTML para separar secciones
+  - Mantén el HTML limpio y sin estilos inline
+  - Todos los estilos deben estar en archivos CSS separados
+-->
+
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <!-- META TAGS: Información sobre el documento -->
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Seguimiento de finanzas personales - Tu herramienta para controlar tus gastos">
+        <meta name="keywords" content="finanzas, presupuesto, gastos, dinero">
+        <meta name="author" content="Tu Nombre">
+        
+        <title>Seguimiento de Finanzas Personales</title>
+        
+        <!-- IMPORTAR CSS: Los estilos deben cargarse antes del contenido -->
+        <!-- reset.css: Elimina estilos por defecto del navegador -->
+        <!-- header.css: Estilos específicos para el encabezado -->
+        <!-- styles.css: Estilos principales del proyecto -->
+        <!-- responsive.css: Estilos para diferentes tamaños de pantalla (mobile, tablet, desktop) -->
+        <link rel="stylesheet" href="../css/reset.css">
+        <link rel="stylesheet" href="../css/header.css">
+        <link rel="stylesheet" href="../css/styles.css">
+        <link rel="stylesheet" href="../css/responsive.css">
+    </head>
+    <body>
+        <!-- SECCIÓN HEADER: Contiene navegación y logotipo -->
+        <!-- Ver: html/partials/header.html para más detalles -->
+        <header>
+            <!-- Aquí se incluirá el contenido del archivo header.html (navegación, logo, etc.) -->
+            <h1>Welcome to my web</h1>
+            <nav>
+                <!-- Menú de navegación principal -->
+                <!-- Los enlaces deben conectar con las diferentes secciones -->
+            </nav>
+        </header>
+        
+        <!-- SECCIÓN PRINCIPAL: Contenido central de la página -->
+        <main>
+            <h2>My web</h2>
+            <!-- El contenido principal va aquí -->
+            <!-- Usa <section> para agrupar contenido relacionado -->
+        </main>
+        
+        <!-- SECCIÓN FOOTER: Pie de página con links, copyright, etc. -->
+        <!-- Ver: html/partials/footer.html para más detalles -->
+        <footer>
+            <!-- Información de pie de página, copyright, links adicionales, redes sociales -->
+            <!-- Ver: html/partials/footer.html para más detalles -->
+        </footer>
+        
+        <!-- IMPORTAR JAVASCRIPT: Los scripts se cargan al final para mejor rendimiento -->
+        <!-- main.js: Script principal del proyecto -->
+        <!-- script.js: Scripts adicionales o específicos -->
+        <script src="../javascript/main.js"></script>
+        <script src="../javascript/script.js"></script>
+    </body>
+</html>

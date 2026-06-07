@@ -1,0 +1,61 @@
+<!--
+  ==================== PARTIAL: header.html ====================
+  
+  DESCRIPCIÓN:
+  Este archivo contiene el código del encabezado (header) de la página.
+  Es un "partial" - un fragmento de HTML que se puede reutilizar en múltiples páginas.
+  
+  QUÉ DEBE CONTENER:
+  1. Logotipo o nombre de la empresa/sitio
+  2. Menú de navegación principal
+  3. Buscador (opcional)
+  4. Botones de login/logout (si aplica)
+  5. Información de contacto rápido (opcional)
+  
+  ESTRUCTURA RECOMENDADA:
+  <header>
+    <div class="container">
+      <div class="logo">Logo aquí</div>
+      <nav>Menú aquí</nav>
+      <div class="header-actions">Botones de acción</div>
+    </div>
+  </header>
+  
+  CONSIDERACIONES:
+  - El header debe ser responsive (adaptarse a móvil)
+  - La navegación debe ser clara y fácil de usar
+  - Los links deben llevar a las secciones principales
+  - Mantén el header consistente en todas las páginas
+  - Usa clases CSS para el estilo, no estilos inline
+  
+  CÓMO USAR ESTE PARTIAL:
+  En Index.html, en lugar de escribir todo el código del header,
+  simplemente incluye este archivo (usando PHP, JavaScript o un bundler)
+  Esto mantiene el código organizado y DRY (Don't Repeat Yourself)
+-->
+
+<header>
+    <div class="header-container">
+        <!-- LOGO/BRANDING: Logotipo o nombre del sitio -->
+        <div class="logo">
+            <img src="../../assets/image/logo.png" alt="Logo del sitio">
+            <span>Mi Sitio Web</span>
+        </div>
+        
+        <!-- NAVEGACIÓN PRINCIPAL: Menú de links principales -->
+        <nav class="navbar">
+            <ul>
+                <li><a href="#home">Inicio</a></li>
+                <li><a href="#about">Acerca de</a></li>
+                <li><a href="#services">Servicios</a></li>
+                <li><a href="#contact">Contacto</a></li>
+            </ul>
+        </nav>
+        
+        <!-- ACCIONES DEL HEADER: Botones de login, idioma, etc. -->
+        <div class="header-actions">
+            <button class="btn-login">Login</button>
+            <button class="btn-menu-mobile">☰</button>
+        </div>
+    </div>
+</header>

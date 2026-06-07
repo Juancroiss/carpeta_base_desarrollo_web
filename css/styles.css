@@ -1,0 +1,395 @@
+/*
+  ==================== STYLES.CSS ====================
+  
+  DESCRIPCIÓN:
+  Este es el archivo CSS PRINCIPAL del proyecto.
+  Contiene los estilos generales y comunes de toda la página.
+  
+  QUÉ VA AQUÍ:
+  1. Variables CSS (colores, fuentes, tamaños)
+  2. Estilos globales (body, html, contenedores)
+  3. Componentes reutilizables (botones, tarjetas, etc.)
+  4. Estilos de secciones principales (main, sections)
+  5. Utilidades (clases auxiliares)
+  
+  ESTRUCTURA DEL ARCHIVO:
+  ✓ Variables CSS en :root
+  ✓ Estilos globales
+  ✓ Componentes reutilizables
+  ✓ Secciones principales
+  ✓ Utilidades
+  
+  IMPORTANCIA DE LA ORGANIZACIÓN:
+  - Código CSS bien organizado es más fácil de mantener
+  - Un junior debe entender rápidamente qué hace cada parte
+  - Los comentarios hacen el código auto-documentado
+  - Separar en archivos (header.css, responsive.css, etc.) mantiene todo limpio
+  
+  CÓMO LEER ESTE ARCHIVO:
+  1. Empieza por :root para entender colores y fuentes
+  2. Mira los estilos globales para ver el diseño base
+  3. Busca el componente que quieres personalizar
+  4. Utiliza Ctrl+F para encontrar clases rápidamente
+  
+  BUENAS PRÁCTICAS EN CSS:
+  - Usa clases, no IDs (excepto para JavaScript)
+  - Mantén especificidad baja (evita selectores anidados profundos)
+  - Agrupa estilos relacionados
+  - Usa comentarios para explicar "por qué", no "qué"
+  - Define variables para colores y tamaños
+  - Evita !important (es un olor a código)
+*/
+
+/* ========== VARIABLES CSS ========== */
+/*
+  Las variables CSS (custom properties) permiten:
+  - Cambiar colores globalmente en un lugar
+  - Mantener consistencia en toda la página
+  - Hacer el código más mantenible
+  - Implementar temas (ej: dark mode)
+  
+  Se definen en :root (elemento raíz del documento)
+  Se usan con: var(--nombre-variable)
+*/
+:root {
+  /* ===== COLORES PRINCIPALES ===== */
+  /* Colores de marca */
+  --color-primary: #3498db;        /* Azul principal */
+  --color-primary-dark: #2980b9;   /* Azul oscuro */
+  --color-primary-light: #ecf0f1;  /* Gris claro */
+  
+  /* Colores de estado */
+  --color-success: #27ae60;         /* Verde (éxito) */
+  --color-error: #e74c3c;           /* Rojo (error) */
+  --color-warning: #f39c12;         /* Naranja (advertencia) */
+  --color-info: #3498db;            /* Azul (información) */
+  
+  /* Colores neutros */
+  --color-dark: #2c3e50;            /* Gris oscuro */
+  --color-light: #ecf0f1;           /* Gris claro */
+  --color-white: #ffffff;           /* Blanco */
+  --color-text: #333333;            /* Texto oscuro */
+  --color-text-light: #666666;      /* Texto gris */
+  
+  /* ===== TIPOGRAFÍA ===== */
+  /* Fuentes */
+  --font-primary: 'Arial', sans-serif;
+  --font-secondary: 'Georgia', serif;
+  --font-mono: 'Courier New', monospace;
+  
+  /* Tamaños de fuente */
+  --font-size-base: 1rem;           /* 16px */
+  --font-size-sm: 0.875rem;         /* 14px */
+  --font-size-lg: 1.125rem;         /* 18px */
+  --font-size-xl: 1.5rem;           /* 24px */
+  --font-size-2xl: 2rem;            /* 32px */
+  
+  /* Alturas de línea */
+  --line-height-base: 1.5;
+  --line-height-heading: 1.2;
+  
+  /* ===== ESPACIADO ===== */
+  /* Se usa múltiplos de 0.25rem para escala consistente */
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+  --spacing-xl: 2rem;
+  --spacing-2xl: 3rem;
+  
+  /* ===== BORDES Y SOMBRAS ===== */
+  --border-radius-sm: 4px;
+  --border-radius-md: 8px;
+  --border-radius-lg: 12px;
+  
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.12);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.16);
+  --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.1);
+  
+  /* ===== TRANSICIONES ===== */
+  --transition-fast: 0.15s ease;
+  --transition-base: 0.3s ease;
+  --transition-slow: 0.5s ease;
+}
+
+/* ========== ESTILOS GLOBALES ========== */
+/*
+  Estilos que aplican a todo el documento
+  Heredados por todos los elementos
+*/
+
+html {
+  /* Tamaño base de fuente (afecta a rem) */
+  font-size: 16px;
+  
+  /* Comportamiento smooth para scroll */
+  scroll-behavior: smooth;
+}
+
+body {
+  /* Tipografía base */
+  font-family: var(--font-primary);
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-base);
+  
+  /* Colores */
+  color: var(--color-text);
+  background-color: var(--color-white);
+  
+  /* Márgenes y padding */
+  margin: 0;
+  padding: 0;
+}
+
+/* ========== CONTENEDORES ========== */
+/*
+  Contenedores base para layouts
+  Usa .container para centrar contenido
+*/
+
+.container {
+  /* Máximo ancho de contenido */
+  max-width: 1200px;
+  
+  /* Centrar horizontalmente */
+  margin: 0 auto;
+  
+  /* Padding para espacio a los lados */
+  padding: 0 var(--spacing-lg);
+  
+  /* Ancho completo */
+  width: 100%;
+}
+
+.container-sm {
+  max-width: 768px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-lg);
+  width: 100%;
+}
+
+.container-lg {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-lg);
+  width: 100%;
+}
+
+/* ========== COMPONENTES REUTILIZABLES ========== */
+
+/* ===== BOTONES ===== */
+/*
+  Clases de botones que pueden reutilizarse en cualquier lugar
+  
+  Ejemplo de uso:
+  <button class="btn btn-primary">Click me</button>
+  <button class="btn btn-secondary">Cancel</button>
+*/
+
+.btn {
+  /* Tipografía */
+  font-family: var(--font-primary);
+  font-size: var(--font-size-base);
+  font-weight: bold;
+  
+  /* Padding */
+  padding: var(--spacing-sm) var(--spacing-lg);
+  
+  /* Bordes y radio */
+  border: none;
+  border-radius: var(--border-radius-sm);
+  
+  /* Cursor */
+  cursor: pointer;
+  
+  /* Transición suave */
+  transition: all var(--transition-base);
+  
+  /* Centrado de texto */
+  text-align: center;
+  text-decoration: none;
+  
+  /* Inline-block para poder usar como link */
+  display: inline-block;
+}
+
+/* Variante: botón primario */
+.btn-primary {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+}
+
+.btn-primary:hover {
+  background-color: var(--color-primary-dark);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+/* Variante: botón secundario */
+.btn-secondary {
+  background-color: var(--color-light);
+  color: var(--color-dark);
+  border: 1px solid var(--color-dark);
+}
+
+.btn-secondary:hover {
+  background-color: var(--color-dark);
+  color: var(--color-white);
+}
+
+/* Variante: botón de error */
+.btn-danger {
+  background-color: var(--color-error);
+  color: var(--color-white);
+}
+
+.btn-danger:hover {
+  background-color: #c0392b;
+}
+
+/* ===== TARJETAS (CARDS) ===== */
+/*
+  Componente de tarjeta reutilizable para mostrar contenido
+  
+  Ejemplo:
+  <div class="card">
+    <h3>Título</h3>
+    <p>Contenido</p>
+  </div>
+*/
+
+.card {
+  /* Fondo */
+  background-color: var(--color-white);
+  
+  /* Bordes */
+  border: 1px solid var(--color-light);
+  border-radius: var(--border-radius-md);
+  
+  /* Padding interno */
+  padding: var(--spacing-lg);
+  
+  /* Sombra */
+  box-shadow: var(--shadow-sm);
+  
+  /* Transición para efectos */
+  transition: all var(--transition-base);
+}
+
+/* Efecto hover en tarjetas */
+.card:hover {
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-4px);
+}
+
+/* ===== SECCIONES ===== */
+/*
+  Estilos para secciones principales
+*/
+
+section {
+  padding: var(--spacing-2xl) 0;
+}
+
+section h2 {
+  font-size: var(--font-size-2xl);
+  margin-bottom: var(--spacing-lg);
+  color: var(--color-dark);
+}
+
+/* ===== TIPOGRAFÍA ===== */
+
+h1 {
+  font-size: var(--font-size-2xl);
+  font-weight: bold;
+  line-height: var(--line-height-heading);
+  color: var(--color-dark);
+  margin-bottom: var(--spacing-md);
+}
+
+h2 {
+  font-size: var(--font-size-xl);
+  font-weight: bold;
+  line-height: var(--line-height-heading);
+  color: var(--color-dark);
+  margin-bottom: var(--spacing-md);
+}
+
+h3 {
+  font-size: var(--font-size-lg);
+  font-weight: bold;
+  line-height: var(--line-height-heading);
+  color: var(--color-dark);
+  margin-bottom: var(--spacing-sm);
+}
+
+p {
+  margin-bottom: var(--spacing-md);
+  line-height: var(--line-height-base);
+}
+
+small {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-light);
+}
+
+/* Links */
+a {
+  color: var(--color-primary);
+  text-decoration: none;
+  transition: color var(--transition-base);
+}
+
+a:hover {
+  color: var(--color-primary-dark);
+  text-decoration: underline;
+}
+
+/* ========== UTILIDADES ========== */
+/*
+  Clases útiles para casos específicos
+  Usa estas clases para ajustes rápidos sin agregar CSS nuevo
+*/
+
+/* Espaciado de márgenes */
+.mt-0 { margin-top: 0; }
+.mt-1 { margin-top: var(--spacing-sm); }
+.mt-2 { margin-top: var(--spacing-md); }
+.mt-3 { margin-top: var(--spacing-lg); }
+
+.mb-0 { margin-bottom: 0; }
+.mb-1 { margin-bottom: var(--spacing-sm); }
+.mb-2 { margin-bottom: var(--spacing-md); }
+.mb-3 { margin-bottom: var(--spacing-lg); }
+
+/* Alineación de texto */
+.text-center { text-align: center; }
+.text-left { text-align: left; }
+.text-right { text-align: right; }
+
+/* Colores de texto */
+.text-primary { color: var(--color-primary); }
+.text-error { color: var(--color-error); }
+.text-success { color: var(--color-success); }
+.text-muted { color: var(--color-text-light); }
+
+/* Visibilidad */
+.hidden { display: none !important; }
+.visible { display: block !important; }
+
+/* Tamaño completo */
+.w-100 { width: 100%; }
+.h-100 { height: 100%; }
+
+/* Opacity */
+.opacity-50 { opacity: 0.5; }
+.opacity-75 { opacity: 0.75; }
+
+/*
+  PRÓXIMOS PASOS:
+  1. Revisa responsive.css para ver cómo se adapta a móvil
+  2. Personaliza los colores en :root según tu marca
+  3. Agrega más componentes según necesites
+  4. Mantén este archivo limpio y organizado
+  5. Usa las variables CSS para consistencia
+*/
