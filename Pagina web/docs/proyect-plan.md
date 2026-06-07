@@ -1,0 +1,1 @@
+Fases de desarrollo (Fase 1: Maquetado, Fase 2: Lógica de gastos, Fase 3: Gráficos).

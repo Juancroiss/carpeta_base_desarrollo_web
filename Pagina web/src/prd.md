@@ -1,0 +1,1 @@
+Contenido ideal: Perfil del usuario, lista de funcionalidades detalladas (ej: "El usuario debe poder categorizar gastos en: Comida, Transporte, Ocio").

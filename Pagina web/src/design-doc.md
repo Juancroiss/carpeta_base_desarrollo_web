@@ -1,0 +1,1 @@
+Contenido ideal: Paleta de colores (ej: Verde para ingresos, rojo para gastos), tipografías, y si será Dark Mode o Light Mode.
